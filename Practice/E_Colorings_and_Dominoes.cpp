@@ -31,8 +31,8 @@ typedef vector<vi>		vvi;
 typedef vector<vl>		vvl;
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 int rng(int lim) {
-	uniform_int_distribution<int> uid(0,lim-1);
-	return uid(rang);
+    uniform_int_distribution<int> uid(0,lim-1);
+    return uid(rang);
 }
 int mpow(int base, int exp); 
 void ipgraph(int n, int m);
@@ -46,7 +46,9 @@ vi g[N];
 int a[N];
 
 void solve() {
-  int i, j, n, m;
+  
+
+
 }
 
 int main() {
@@ -74,18 +76,18 @@ int mpow(int base, int exp) {
 }
 
 void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
+    int i, u, v;
+    while(m--){
+        cin>>u>>v;
     u--, v--;
-		g[u].pb(v);
-		g[v].pb(u);
-	}
+        g[u].pb(v);
+        g[v].pb(u);
+    }
 }
 
 void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
+    for(int v:g[u]){
+        if (v == par) continue;
+        dfs(v, u);
+    }
 }
