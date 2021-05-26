@@ -1,8 +1,2 @@
-*
-!*.cpp
-!*.kt
-!*.py
-!*.c
-!*.java
-!*.tmpl
+*.exe
 
