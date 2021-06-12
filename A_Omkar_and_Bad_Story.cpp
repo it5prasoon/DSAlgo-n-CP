@@ -45,9 +45,24 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
+
 void solve() {
   
+    int n,x; cin >> n;
 
+    bool h = true;
+    for(int i=0; i<n; i++) {
+        cin >> x;
+        if(x < 0) h = false;
+    } 
+
+    if(h){
+        cout << "YES\n";
+        cout << 101 << endl;
+        for(int i=0; i<=100; i++) cout << i << ' ';
+        cout << endl;
+    }
+    else cout << "NO\n";
 
 }
 

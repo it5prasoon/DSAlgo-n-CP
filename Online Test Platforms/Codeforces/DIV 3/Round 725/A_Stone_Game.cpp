@@ -34,11 +34,39 @@ inline void op() {
 const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
- 
+
+int solveBinary(vector<int> arr, int n){
+
+   int l = 0, r = n-1;
+   int lval = 1, rval = *max_element(arr.begin(), arr.end());
+   bool lf = false, ri = false, rep = true;
+    while(l+1<r){
+        if(arr[l]==lval){
+            l++;
+            lf=true;
+            if(lf && ri) break;
+        } else if(arr[r]==rval){
+            r--;
+            ri=true;
+            if(lf && ri) break; 
+        } else if(arr[l]!=lval && arr[r]!=rval){
+            if(rep){
+                l++;
+                rep = false;
+            }else{
+                r--;
+                rep = true;
+            }
+        }
+    }
+   //  cout<<"l-"<<l<<" r-"<<r<<endl;
+
+   return r-l+1;
+}
  
 int32_t main() {
    lets_go
-   // op();
+//   op();
  
    int t;
    cin >> t;
@@ -46,7 +74,13 @@ int32_t main() {
    while (t--) {
       int n;
       cin >> n;
-    
+
+      vector<int> a(n);
+        for(int i=0; i<n; i++){
+            cin>>a[i];
+        }
+
+     cout << solveBinary(a,n) << endl;
  
    }
    
