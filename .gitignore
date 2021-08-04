@@ -5,8 +5,8 @@
 ### C++ ###
 # Prerequisites
 *.d
-.vscode
-.cph
+/.vscode
+/.cph
 
 # Compiled Object files
 *.slo
