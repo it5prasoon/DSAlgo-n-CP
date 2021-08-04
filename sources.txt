@@ -1,0 +1,31 @@
+1. Arrays
+https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/
+
+
+2. Strings
+https://www.interviewbit.com/courses/programming/topics/strings/
+
+3. Linked Lists
+https://www.interviewbit.com/courses/programming/topics/linked-lists/
+
+4. Stacks and Queues
+https://www.interviewbit.com/courses/programming/topics/stacks-and-queues/
+
+5. Tree-based data structures:
+https://www.interviewbit.com/courses/programming/topics/tree-data-structure/
+https://www.interviewbit.com/courses/programming/topics/heaps-and-maps/
+https://www.interviewbit.com/courses/programming/topics/hashing/
+
+6. Graphs:
+https://leetcode.com/tag/graph/ (Easy and Medium)
+
+7. Dynamic Programming:
+https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+https://www.geeksforgeeks.org/coin-change-dp-7/
+https://www.geeksforgeeks.org/compute-ncr-p-set-1-introduction-and-dynamic-programming-solution/
+https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
+https://www.geeksforgeeks.org/longest-common-substring-dp-29/
+
+https://www.interviewbit.com/courses/programming/topics/dynamic-programming/
