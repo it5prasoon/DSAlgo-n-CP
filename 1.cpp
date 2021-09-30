@@ -42,6 +42,25 @@ const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
 
+void generateParenthesis(int n, int open, int close, string s, vector<string> &ans){
+    
+    if (ans.size() >= n) {
+        return;
+    }
+    
+    if(open==n && close==n){
+        ans.push_back(s);
+        return;
+    } 
+
+    if(open<n){
+        generateParenthesis(n, open+1, close, s+"(", ans);
+    }
+    if(close<open){
+        generateParenthesis(n, open, close+1, s+")", ans);
+    }
+       
+}
 
 int32_t main() {
     lets_go
@@ -54,7 +73,16 @@ int32_t main() {
         int n;
         cin >> n;
 
+        vector<string> ans;
+        generateParenthesis(n,0,0,"",ans);
 
+        // for(int i=0; i<n; i++){
+        //     cout<<ans[i]<<endl;
+        // }
+
+        for (auto s: ans) {
+            cout << s << endl;
+        }
 
     }
 

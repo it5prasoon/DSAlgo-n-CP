@@ -34,6 +34,7 @@ int lcm(int a, int b);
 bool isPrime(int n);
 int powerModulo(int x, int n, int m);
 void seive(int n);
+int max(int a, int b); 
 
 // <=================================================================================================================================
 // <=================================================================================================================================
@@ -45,14 +46,38 @@ const int N = 2e5 + 10;
 
 int32_t main() {
     lets_go
-    // op();
+    op();
 
     int t;
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int n, m;
+        cin >> n >> m;
+
+        vi s;
+        int x;
+
+        for (int i=0; i<m; i++) {
+            cin>>x;
+            s.push_back(x);
+        }
+
+        vector<vi> p;
+
+        for (int i=0; i<n; i++) {
+            vi xx;
+            for (int j=0; j<m; j++) {
+                cin >> x;
+                xx.push_back(x);
+            }            
+            p.push_back(xx);
+        }
+
+        
+
+
+
 
 
 
@@ -91,4 +116,9 @@ void seive(int n){
             cout << i << " ";
             for (int j=i*i; j<=n; j=j+i) is_prime[j] = false;
         }
+}
+
+int max(int a, int b) {
+    if (a>b) return a;
+    else return b;
 }

@@ -34,6 +34,8 @@ int lcm(int a, int b);
 bool isPrime(int n);
 int powerModulo(int x, int n, int m);
 void seive(int n);
+int max(int a, int b); 
+int min(int a, int b); 
 
 // <=================================================================================================================================
 // <=================================================================================================================================
@@ -92,3 +94,12 @@ void seive(int n){
             for (int j=i*i; j<=n; j=j+i) is_prime[j] = false;
         }
 }
+
+int max(int a, int b) {
+    return ((a>b)? a : b);
+}
+
+int min(int a, int b) {
+    return ((a<b)? a : b);
+}
+

@@ -8,7 +8,6 @@ class Solution
     public:
     
     vector<string> sv;
-    
     void printParenthesis(int pos, int n, int open, int close) {
         static char str[1000];
         if (close == n) {
@@ -32,14 +31,9 @@ class Solution
     
     vector<string> AllParenthesis(int n) 
     {
-        // Your code goes here 
-        vector<string> p;
-      
+        sv.clear();
         printParenthesis(0,n,0,0);
-        p = sv;
-        // p.push_back(printParenthesis(0,n,0,0));
-        
-        return p;
+        return sv;
     }
 };
 

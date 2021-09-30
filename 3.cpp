@@ -47,16 +47,31 @@ int32_t main() {
     lets_go
     // op();
 
-    int t;
-    cin >> t;
+    // int t;
+    // cin >> t;
 
-    while (t--) {
-        int n;
-        cin >> n;
+    // while (t--) {
+    int n;
+    cin >> n;
 
+    vi a;
 
+    for(int i=0; i<n; i++) cin >> a[i];
+    int m; cin >> m;
 
+    vi x;
+    vi y;
+
+    for(int i=0; i<m; i++) {
+        cin >> x[i] >> y[i];
     }
+
+
+        
+
+
+
+    // }
 
     return 0;
 }

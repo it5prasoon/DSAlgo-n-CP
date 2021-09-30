@@ -22,73 +22,75 @@ void PV(vi v) { for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i] << " " ; 
 void PVV(vii v) {for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i].first << " " << v[i].second << endl;}
 void PA(int v[], int n, int x = 0) { for (int i = x ; i < n + x; i++)cout << v[i] << ' ' ; cout << endl;}
 void IN(int a[], int n, int x = 0) {for (int i = x; i < n + x; i++)cin >> a[i];}
+
 inline void op() {
-#ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
 }
-
-int gcd(int a, int b);
-int lcm(int a, int b);
-bool isPrime(int n);
-int powerModulo(int x, int n, int m);
-void seive(int n);
-
+ 
 // <=================================================================================================================================
 // <=================================================================================================================================
 const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
-
-
 int32_t main() {
     lets_go
-    // op();
+
+    op();
 
     int t;
     cin >> t;
-
+    int c=1;
+    int consonant = 0, vowel = 0;
+    unordered_map<char, int> um;
+    unordered_map<char, int> um2;
+        
     while (t--) {
-        int n;
-        cin >> n;
 
+        string s;
+        cin >> s;
+        vowel = 0; 
+        consonant = 0;
 
+        um.clear();
+        um2.clear();
 
-    }
-
-    return 0;
-}
-
-int gcd(int a, int b) { if (b==0) return a; else return gcd(b, a%b); }
-int lcm(int a, int b) { return (a*b)/gcd(a,b); } 
-
-bool isPrime(int n) {
-    if(n==1) return false;
-    if(n==2 || n==3) return true;
-    if(n%2==0 || n%3==0) return false;
-    for (int i=5; i*i<=n; i=i+6) 
-        if (n%i==0 || n%(i+2)==0)
-            return false;
-    return true;
-}
-
-int powerModulo(int x, int n, int m) {
-    int res = 1;
-    while (n>0) {
-        if (n&1) res = (res*x)%m;
-        x = (x*x)%m;
-        n = n>>1;
-    }
-    return res;
-}
-
-void seive(int n){
-    vector<bool> is_prime(n+1, true);
-    for (int i=2; i<=n; i++)
-        if(is_prime[i]) {
-            cout << i << " ";
-            for (int j=i*i; j<=n; j=j+i) is_prime[j] = false;
+      
+        for (int i = 0; i < s.size(); i++){  
+            if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
+                um[s[i]]++;
+                vowel += 1;
+            }
+            else {
+                um2[s[i]]++;
+                consonant += 1;
+            }
         }
+
+        int maximum_count = 0, res = -1;
+        for (auto it : um) {
+            if (maximum_count < it.second)
+            {
+                res = it.first;
+                maximum_count = it.second;
+            }
+        }
+
+        int maximum_count2 = 0, res1 = -1;
+        for (auto it : um2) {
+            if (maximum_count2 < it.second)
+            {
+                res1 = it.first;
+                maximum_count2 = it.second;
+            }
+        }
+
+        cout << "Case #" << c << ": " << min(consonant + 2 * (vowel - maximum_count), vowel + 2 * (consonant - maximum_count2)) << endl;
+        c++;
+   }
+
+   return 0;
 }
