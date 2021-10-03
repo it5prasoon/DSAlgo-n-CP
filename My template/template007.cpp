@@ -4,8 +4,10 @@ using namespace std;
 #define endl "\n"
 #define Br cout<<endl
 #define int long long
-#define fe first
-#define se second
+#define ff first
+#define ss second
+#define pb push_back
+#define mp make_pair
 #define double long double
 #define all(v) v.begin(),v.end()
 #define allr(v) v.rbegin(),v.rend()
@@ -29,6 +31,7 @@ inline void op() {
 #endif
 }
 
+void readvec(vector<int> &v, int n) { for(int i=0; i<n; i++) { int x; cin >> x; v.push_back(x); } }
 int gcd(int a, int b);
 int lcm(int a, int b);
 bool isPrime(int n);
@@ -54,8 +57,9 @@ int32_t main() {
         int n;
         cin >> n;
 
+        
 
-
+        
     }
 
     return 0;
