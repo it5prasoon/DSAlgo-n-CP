@@ -58,10 +58,34 @@ int32_t main() {
     while (t--) {
         int n;
         cin >> n;
-
         
+        ii b[n];
 
-        
+        for (int i=0; i<n; i++) {
+            int x; cin >> x;
+            b[i] = mp(x, i);
+        }
+
+        sort(b, b+n);
+        int l=0; 
+        vi a(n,0);
+
+        for (int i=0; i<n; i++) {
+            if (l < b[i].ff) {
+                a[b[i].ss] = l;
+                l++;
+            }
+
+            else {
+                a[b[i].ss] = b[i].ff;
+            }
+        }
+
+        for (int i=0; i<n; i++) {
+            cout << a[i] << " ";
+        }
+
+        cout << endl;
     }
 
     return 0;

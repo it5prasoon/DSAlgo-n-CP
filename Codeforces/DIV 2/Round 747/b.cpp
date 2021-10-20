@@ -31,8 +31,6 @@ inline void op() {
 #endif
 }
 
-int min(int x, int y) { return ((x < y) ? x : y); }
-int max(int x, int y) { return ((x > y) ? x : y); }
 void readvec(vector<int> &v, int n) { for(int i=0; i<n; i++) { int x; cin >> x; v.push_back(x); } }
 int gcd(int a, int b);
 int lcm(int a, int b);
@@ -46,6 +44,35 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
+void solve(int n, int k) {
+
+    int ans = 0;
+
+    int a[32], arr[32];
+
+
+    for (int i=0; i<32; i++) {
+        a[i]=powerModulo(n,i,M);   
+    }
+
+    // cout << a[1] << " ";
+
+    memset(arr, 0, sizeof(arr));
+
+    int i=0;
+    while (k > 0) {
+    
+        arr[i] = k % 2;
+        k = k / 2;
+        i++;
+    }
+
+    for (int i=0; i<32; i++) {
+        ans=(ans+(a[i]*arr[i])%M)%M;
+    }
+
+    cout << ans << endl;
+}
 
 
 int32_t main() {
@@ -56,12 +83,10 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int n, k;
+        cin >> n >> k;
 
-        
-
-        
+        solve(n,k);        
     }
 
     return 0;

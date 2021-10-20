@@ -31,8 +31,6 @@ inline void op() {
 #endif
 }
 
-int min(int x, int y) { return ((x < y) ? x : y); }
-int max(int x, int y) { return ((x > y) ? x : y); }
 void readvec(vector<int> &v, int n) { for(int i=0; i<n; i++) { int x; cin >> x; v.push_back(x); } }
 int gcd(int a, int b);
 int lcm(int a, int b);
@@ -56,11 +54,32 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int d=0,in=0,e=0;
 
-        
+        for (int i=0; i<5; i++) {
+            int x; cin >> x;
 
+            if (x==0)
+                d++;
+            if (x==1)
+                in++;
+            if (x==2)
+                e++;
+        }
+
+        if (in==e) {
+            cout << "DRAW" << endl;
+            continue;
+        } else if (in < e) {
+            cout << "ENGLAND" << endl;
+            continue;
+        } else if (in > e) {
+            cout << "INDIA" << endl;
+            continue;
+        } else {
+            cout << "DRAW" << endl;
+            continue;
+        }
         
     }
 

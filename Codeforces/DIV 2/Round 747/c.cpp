@@ -31,8 +31,6 @@ inline void op() {
 #endif
 }
 
-int min(int x, int y) { return ((x < y) ? x : y); }
-int max(int x, int y) { return ((x > y) ? x : y); }
 void readvec(vector<int> &v, int n) { for(int i=0; i<n; i++) { int x; cin >> x; v.push_back(x); } }
 int gcd(int a, int b);
 int lcm(int a, int b);
@@ -58,6 +56,11 @@ int32_t main() {
     while (t--) {
         int n;
         cin >> n;
+
+        char c; cin >> c;
+        string s; cin >> s;
+
+        
 
         
 

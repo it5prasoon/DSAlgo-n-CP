@@ -59,9 +59,45 @@ int32_t main() {
         int n;
         cin >> n;
 
-        
+        vi a;
+        readvec(a,n);
 
-        
+        vi idx;
+        unordered_map<int, int> um = {{0,-1}};
+
+        int sum=0;
+        for (int i=0; i<n ;i++) {
+            sum+=a[i];
+        }
+
+        if (!isPrime(sum)) {
+            cout << n << endl;
+            for (int i=0; i<n; i++) {
+                cout << i+1 << " ";
+            }
+            cout << endl;
+        } else {
+            int i = n-1;
+            int c = 0;
+            while (isPrime(sum)) {
+                int temp = sum;
+                sum-=a[i];
+                i--;
+                c++;
+                if (!isPrime(sum))
+                    break;
+                sum = temp;
+                
+            }
+            
+            cout << n-1 << endl;
+            
+            for (int j=0; j<n; j++) {
+                if (j != i+1)
+                    cout << j+1 << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
