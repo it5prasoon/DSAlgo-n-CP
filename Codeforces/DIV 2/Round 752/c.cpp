@@ -61,9 +61,28 @@ int32_t main() {
         int n;
         cin >> n;
 
-        
+        int a[n];
 
-        
+        if (n==0) break;
+
+        for (int i=1; i<=n; i++)
+            cin >> a[i];
+
+        int ff=1;
+        int flag;
+        for(int i=1;i<=n;i++){
+            flag = 0;
+            for(int j=2;j<=i+1;j++)
+                if(a[i]%j) {
+                    flag=1;
+                    break;
+                }
+            if(!flag){
+                printf("NO\n"),ff=0;
+                break;
+            }
+        }
+        if(ff) printf("YES\n");  
     }
 
     return 0;

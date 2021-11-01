@@ -48,6 +48,47 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
+void solve(vector<int> v, int n) {
+    int mx = INT_MAX;
+    sort(v.begin(), v.end());
+
+
+    if (n==2) {
+        cout << 0 << "\n";
+        return;
+    } 
+    else if (n==3) {
+        cout << min(v[1]-v[0], v[2]-v[1]) << "\n";
+        return;
+    }
+
+    int size1=0, size2=0, a1, a2;
+
+    fo(i,n-1) {
+        size1+=abs(v[i]-v[(n-1)/2]);
+    }
+
+    for(int i=1; i < n; i++) {
+        size2+=abs(v[i]-v[1+(n-1)/2]);
+    }
+
+    mx = min(size1, size2);
+    int l = 1, r=n-2;
+
+    while (l<r) {
+        a2 = v[n-1] - v[l], a1 = v[r]-v[0];
+        mx = min(mx, abs(a1-a2));
+
+        if (a1 < a2)
+            l++;
+        else 
+            r--;
+
+    }
+
+    cout << mx << "\n";
+    
+}
 
 
 int32_t main() {
@@ -61,9 +102,10 @@ int32_t main() {
         int n;
         cin >> n;
 
+        vi a;
+        readvec(a,n);
         
-
-        
+        solve(a, n);
     }
 
     return 0;

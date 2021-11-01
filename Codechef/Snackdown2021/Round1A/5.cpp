@@ -48,6 +48,51 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
+void solve(int n, int k) {
+
+    if (k==0) {
+        cout << "Yes" << endl;
+        cout << 0 << endl;
+        return;
+    }
+
+    if (k%2==0) {
+        cout << "No" << endl;
+        return;
+    }
+    int c = 0;
+
+    for(int i=31; i>=0; i--) {
+        if (((1<<i)&k) != 0) {
+            c = i+1;
+            break;
+        }
+    }
+
+    k = (k+(1<<c)-1)/2;
+    cout << "Yes" << endl; 
+    cout << c << endl;
+
+    int res = 1;
+    vi v;
+
+    for(int i=c-2; i>=0; i--) {
+        if(((1<<i)&k)!=0){
+            v.push_back(res);
+            res+=(1<<i);
+        }
+        else{
+            res-=(1<<i);
+            v.push_back(res);
+        }
+    }
+
+    for (int i=c-2; i>=0; i--)
+        cout << v[i] << endl;
+    
+    cout << res << endl;
+
+}
 
 
 int32_t main() {
@@ -58,12 +103,10 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int n, k;
+        cin >> n >> k;
 
-        
-
-        
+        solve(n, k);
     }
 
     return 0;

@@ -48,7 +48,12 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
+void solve(int x, int y) {
 
+    if (x>y) cout << x+y << endl;
+    else cout << y-(y%x/2) << endl;
+
+}
 
 int32_t main() {
     lets_go
@@ -58,12 +63,10 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int x, y;
+        cin >> x >> y;
 
-        
-
-        
+        solve(x, y);
     }
 
     return 0;

@@ -48,8 +48,6 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
-
-
 int32_t main() {
     lets_go
     // op();
@@ -58,10 +56,26 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        string s;
+        cin >> s;
+        char sm = 'z';
+        for (int i=0; i<s.size(); i++) {
 
-        
+            if (s[i] < sm)
+                sm = s[i];
+        }    
+
+        int idx = 0;
+        for (int i=0; i<s.size(); i++) {
+            if (s[i] == sm) {
+                idx = i;
+                break;
+            }
+        }
+
+        s.erase(s.begin()+idx);
+
+        cout << sm << " " << s << "\n";
 
         
     }

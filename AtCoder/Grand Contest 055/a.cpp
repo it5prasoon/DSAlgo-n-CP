@@ -54,19 +54,95 @@ int32_t main() {
     lets_go
     // op();
 
-    int t;
-    cin >> t;
 
-    while (t--) {
-        int n;
-        cin >> n;
+    int n; cin >> n;
+    string s;
+    cin >> s;
 
-        
+    vector<vi> cnt(3, vector<int>(3));
 
-        
+    vector<vector<vi>> at(3, vector<vector<int>>(3));
+
+    fo(i, 3*n) {
+        cnt[i / n][(int) (s[i] - 'A')] += 1;
+        at[i/n][(int) (s[i] - 'A')].push_back(i);
     }
 
+    for (int AB = 0; AB <= cnt[0][0]; AB++) {
+    int AC = cnt[0][0] - AB;
+    int BC = cnt[2][2] - AC;
+    int BA = cnt[0][1] - BC;
+    int CA = cnt[2][0] - BA;
+    int CB = cnt[0][2] - CA;
+    if (AC < 0 || BC < 0 || BA < 0 || CA < 0 || CB < 0) {
+      continue;
+    }
+
+
+    if (AB + BA != cnt[1][2] || AC + CA != cnt[1][1] || BC + CB != cnt[1][0]) {
+      continue;
+    }
+
+    string ret(3 * n, '-');
+    for (int i = n; i < 2 * n; i++) {
+      if (s[i] == 'A') {
+        if (BC > 0) {
+          ret[at[0][1].back()] = '1'; at[0][1].pop_back();
+          ret[at[2][2].back()] = '1'; at[2][2].pop_back();
+          ret[i] = '1';
+          BC -= 1;
+          continue;
+        }
+        if (CB > 0) {
+          ret[at[0][2].back()] = '2'; at[0][2].pop_back();
+          ret[at[2][1].back()] = '2'; at[2][1].pop_back();
+          ret[i] = '2';
+          CB -= 1;
+          continue;
+        }
+      }
+      if (s[i] == 'B') {
+        if (AC > 0) {
+          ret[at[0][0].back()] = '3'; at[0][0].pop_back();
+          ret[at[2][2].back()] = '3'; at[2][2].pop_back();
+          ret[i] = '3';
+          AC -= 1;
+          continue;
+        }
+        if (CA > 0) {
+          ret[at[0][2].back()] = '4'; at[0][2].pop_back();
+          ret[at[2][0].back()] = '4'; at[2][0].pop_back();
+          ret[i] = '4';
+          CA -= 1;
+          continue;
+        }
+      }
+      if (s[i] == 'C') {
+        if (BA > 0) {
+          ret[at[0][1].back()] = '5'; at[0][1].pop_back();
+          ret[at[2][0].back()] = '5'; at[2][0].pop_back();
+          ret[i] = '5';
+          BA -= 1;
+          continue;
+        }
+        if (AB > 0) {
+          ret[at[0][0].back()] = '6'; at[0][0].pop_back();
+          ret[at[2][1].back()] = '6'; at[2][1].pop_back();
+          ret[i] = '6';
+          AB -= 1;
+          continue;
+        }
+      }
+      assert(false);
+    }
+    cout << ret << '\n';
     return 0;
+  }
+  assert(false);
+    
+        
+    return 0;
+
 }
 
 int gcd(int a, int b) { if (b==0) return a; else return gcd(b, a%b); }

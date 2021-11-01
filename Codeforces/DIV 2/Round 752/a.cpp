@@ -61,9 +61,24 @@ int32_t main() {
         int n;
         cin >> n;
 
-        
+        int a[n];
+        fo(i,n) {
+            cin >> a[i];
+        }
 
+        int count = 0;
+
+        int j=1;
+        fo (i,n) {
+            
+            if (a[i] <= i+1+count) {
+                continue;
+            }
+            else 
+                count += a[i] - (i+1+count);
+        }
         
+        cout << count << endl;
     }
 
     return 0;

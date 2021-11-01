@@ -61,7 +61,31 @@ int32_t main() {
         int n;
         cin >> n;
 
+        vi a;
+        readvec(a, n);
+
+        if (n%2==0)
+            cout << "YES" << endl;
         
+        else {
+            bool b = false;
+            int m = -1;
+
+            for (auto x: a) {
+                
+                if (x <= m)
+                    b = true;
+                
+                m = x;
+            }
+
+            if (b)
+                cout << "YES" << endl;
+            else 
+                cout << "NO" << endl;
+
+        }
+
 
         
     }

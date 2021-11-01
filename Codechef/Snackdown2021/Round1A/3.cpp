@@ -9,8 +9,6 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define double long double
-#define fo(i,n) for(int i=0;i<n;i++)
-#define foi(i, n) for (int i = n - 1; i >= 0; i--)
 #define all(v) v.begin(),v.end()
 #define allr(v) v.rbegin(),v.rend()
 #define PT(x) cout << (x) << endl
@@ -20,10 +18,10 @@ using namespace std;
 #define PTT(x) cout << (#x) << " is " << (x) << endl
 #define lets_go ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 typedef vector<int> vi;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
 void PV(vi v) { for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i] << " " ; cout << endl;}
-void PVV(vpii v) {for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i].first << " " << v[i].second << endl;}
+void PVV(vii v) {for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i].first << " " << v[i].second << endl;}
 void PA(int v[], int n, int x = 0) { for (int i = x ; i < n + x; i++)cout << v[i] << ' ' ; cout << endl;}
 void IN(int a[], int n, int x = 0) {for (int i = x; i < n + x; i++)cin >> a[i];}
 inline void op() {
@@ -48,7 +46,22 @@ const int M = 1e9 + 7;
 const int IM = 1e18 + 37;
 const int N = 2e5 + 10;
 
+void solve(int n, int k) {
 
+    int total = n*(n-1);
+
+    int bT = n-k;
+    int bS = bT*(bT-1);
+    total -= bS;
+    total/=k;
+
+    if (total%2==0) {
+        cout << total << endl;
+        return;
+    }
+
+    cout << total - 1 << endl;
+}
 
 int32_t main() {
     lets_go
@@ -58,12 +71,9 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
-
-        
-
-        
+        int n, k;
+        cin >> n >> k;
+        solve(n, k); 
     }
 
     return 0;

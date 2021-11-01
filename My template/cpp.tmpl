@@ -9,6 +9,8 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define double long double
+#define fo(i,n) for(int i=0;i<n;i++)
+#define foi(i, n) for (int i = n - 1; i >= 0; i--)
 #define all(v) v.begin(),v.end()
 #define allr(v) v.rbegin(),v.rend()
 #define PT(x) cout << (x) << endl
@@ -18,10 +20,10 @@ using namespace std;
 #define PTT(x) cout << (#x) << " is " << (x) << endl
 #define lets_go ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 typedef vector<int> vi;
-typedef pair<int, int> ii;
-typedef vector<ii> vii;
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
 void PV(vi v) { for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i] << " " ; cout << endl;}
-void PVV(vii v) {for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i].first << " " << v[i].second << endl;}
+void PVV(vpii v) {for (int i = 0 ; i < (int)v.size() ; i++) cout << v[i].first << " " << v[i].second << endl;}
 void PA(int v[], int n, int x = 0) { for (int i = x ; i < n + x; i++)cout << v[i] << ' ' ; cout << endl;}
 void IN(int a[], int n, int x = 0) {for (int i = x; i < n + x; i++)cin >> a[i];}
 inline void op() {

@@ -58,12 +58,27 @@ int32_t main() {
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        int n, k;
+        cin >> n >> k;
 
-        
+        if (k==1) {
+            cout << n-1 << endl;
+            continue;
+        }   
 
-        
+        int k1 = 1;
+        int sum = 0;
+
+        while(k1<=k and k1<n)
+            k1 *= 2 , sum++;
+
+        if(k1 >n )
+            sum+=0;
+        else
+            sum+=(n-k1+k-1)/k;
+            
+        cout<<sum<<"\n";
+        // cout << count << endl;
     }
 
     return 0;
